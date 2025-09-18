@@ -3,6 +3,8 @@ import { Outlet } from 'react-router';
 import Header from '../components/Header/Header';
 import LatestNews from '../components/LatestNews/LatestNews';
 import Navbar from '../components/Navbar/Navbar';
+import LeftAside from '../components/HomeLayout/LeftAside';
+import RightAside from '../components/HomeLayout/RightAside';
 
 
 const HomeLayout = () => {
@@ -18,17 +20,22 @@ const HomeLayout = () => {
             </nav>
             </header>
             
-
-            <main>
+             {/* You can give all children border by using this => *:border inside class */}
+            <main className='w-11/12 mx-auto  grid grid-cols-12'>
                 
-                <section className="left-section"></section>
-               
+                
+                <aside className='col-span-3'>
+                    <LeftAside></LeftAside>
+                </aside>
 
-                <section className="main-section">
+                <section className="main-section col-span-6">
                     <Outlet></Outlet>
                 </section>
 
-                <section className="right-section"></section>
+                <aside className='col-span-3'>
+                    <RightAside></RightAside>
+                </aside>
+
             </main>
         </div>
     );
