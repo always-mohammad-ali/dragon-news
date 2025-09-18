@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Header from '../components/Header/Header';
 
+
 const HomeLayout = () => {
     return (
         <div>
@@ -10,7 +11,9 @@ const HomeLayout = () => {
             </header>
 
             <main>
+                
                 <section className="left-section"></section>
+               
 
                 <section className="main-section">
                     <Outlet></Outlet>
