@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router';
 import Header from '../components/Header/Header';
+import LatestNews from '../components/LatestNews/LatestNews';
 
 
 const HomeLayout = () => {
@@ -9,6 +10,9 @@ const HomeLayout = () => {
             <header>
                 <Header></Header>
             </header>
+            <section className=''>
+                <LatestNews></LatestNews>
+            </section>
 
             <main>
                 
