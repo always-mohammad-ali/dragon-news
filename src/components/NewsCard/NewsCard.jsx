@@ -20,9 +20,14 @@ const NewsCard = ({ newsCard }) => {
     <div>
       <div className="w-21/22 mx-auto">
         <div className="flex justify-between bg-gray-200 p-3">
-          <div>
-            <p className="text-lg font-bold">{author.name}</p>
-            <p className="text-secondary">{formattedDate}</p>
+          <div className="flex gap-3">
+            <div className=" w-1/6">
+                <img className="w-full rounded-3xl" src={author.img} alt="" />
+            </div>
+            <div>
+                <p className="text-lg font-bold"> {author.name}</p>
+                <p className="text-secondary">{formattedDate}</p>
+            </div>
           </div>
           <div className="flex gap-3 text-2xl text-secondary">
             <button>
