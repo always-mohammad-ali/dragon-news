@@ -9,7 +9,6 @@ const Qzone = () => {
         <div>
             <div>
                 <img src={swimmming} alt="" />
-
             </div>
             <div>
                 <img src={playground} className='my-4' alt="" />
