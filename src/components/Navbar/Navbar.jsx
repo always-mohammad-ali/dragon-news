@@ -4,7 +4,7 @@ import userProfile from './../../assets/user.png'
 
 const Navbar = () => {
     return (
-        <div className='flex justify-between items-center'>
+        <div className='flex justify-between items-center mb-10'>
             <div></div>
             <div className='flex gap-5'>
                 <NavLink to='/' className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>Home</NavLink>
