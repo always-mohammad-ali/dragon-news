@@ -1,9 +1,13 @@
 import React from 'react';
+import CategoryNews from './CategoryNews';
+import NewsCard from '../components/NewsCard/NewsCard';
+
 
 const Home = () => {
+
     return (
         <div>
-            <h1>Home is sweet place man!</h1>
+            
         </div>
     );
 };
