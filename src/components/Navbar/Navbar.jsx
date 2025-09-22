@@ -29,8 +29,8 @@ const Navbar = () => {
                 <NavLink to='/career' className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>Career</NavLink>
             </div>
 
-            <div className='flex gap-5 items-center my-5'>
-                <img className="w-1/10 rounded-4xl" src={`${user ?user.photoURL : userIcon}`} alt=""  />
+            <div className='flex gap-5 items-center my-5 justify-end'>
+                <img  src={`${user ? user.photoURL : userIcon }`} alt=""  className="w-1/10 rounded-4xl "/>
                 
                 {
                     user ? <button onClick={handleLogOut} className='btn btn-primary px-8'>Log Out</button> : <Link to="/auth/login" className='btn btn-primary px-8'>Login</Link>
