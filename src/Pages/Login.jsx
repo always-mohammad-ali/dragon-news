@@ -1,57 +1,79 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/authProvider";
 
 const Login = () => {
-  
-  const {logInUser} = use(AuthContext);
-  
+  const { logInUser } = use(AuthContext);
+
   const location = useLocation();
-  console.log(location)
+  console.log(location);
 
   const navigate = useNavigate();
 
-  const handleLogin=(e)=>{
+  const [error, setError] = useState("");
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    
+
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
 
     logInUser(email, password)
-    .then((result) =>{
-      const user = result.user;
-      console.log(user)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
 
-      navigate(`${location.state ? location.state : "/"}` )
-    })
-    .catch((error)=>{
-      console.log(error)
-      alert(error.message)
-    })
-    
-  }
-  
+        navigate(`${location.state ? location.state : "/"}`);
+      })
+      .catch((error) => {
+        // console.log(error)
+        // const errorCode = error.code;
+        const errorMsg = error.message;
+        
+        
+        setError(errorMsg);
+      });
+  };
+
   return (
     <div className="flex justify-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
           <form onSubmit={handleLogin} className="fieldset">
-
             {/* EMAIL SECTION */}
             <label className="label">Email</label>
-            <input type="email" name="email" className="input" placeholder="Email" />
+            <input
+              type="email"
+              name="email"
+              className="input"
+              placeholder="Email"
+            />
 
             {/* PASSWORD SECTION */}
             <label className="label">Password</label>
-            <input type="password" name="password" className="input" placeholder="Password" />
+            <input
+              type="password"
+              name="password"
+              className="input"
+              placeholder="Password"
+            />
 
             <div>
-
+              {error && <p className="text-red-500">{error}</p>}
               <a className="link link-hover">Forgot password?</a>
             </div>
             <button className="btn btn-neutral mt-4">Login</button>
-            <p className="text-secondary my-3">Don't Have an Account? <Link className="text-accent font-semibold hover:underline" to="/auth/register"> Register Now!</Link> </p>
+            <p className="text-secondary my-3">
+              Don't Have an Account?{" "}
+              <Link
+                className="text-accent font-semibold hover:underline"
+                to="/auth/register"
+              >
+                {" "}
+                Register Now!
+              </Link>{" "}
+            </p>
           </form>
         </div>
       </div>
