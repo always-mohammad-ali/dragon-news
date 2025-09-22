@@ -1,10 +1,11 @@
 import React, { use, useState } from "react";
 import { Link } from "react-router";
 import { AuthContext } from "../provider/authProvider";
+// import { updateProfile } from "firebase/auth";
 
 const Register = () => {
 
-  const {createUser, setUser} = use(AuthContext)
+  const {createUser, setUser, updateUserProfile} = use(AuthContext)
   const [nameError, setNameError] = useState("")
 
   const handleRegister = (e) =>{
@@ -17,6 +18,7 @@ const Register = () => {
     else{
         setNameError("")
     }
+
     const photoUrl = e.target.photoUrl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -26,7 +28,17 @@ const Register = () => {
     createUser(email, password)
     .then((result) =>{
       const user = result.user;
-      setUser(user);
+
+      updateUserProfile({displayName:name , photoURL: photoUrl})
+      .then( () => {
+        setUser({ ...user, displayName:name , photoURL: photoUrl})
+      })
+      .catch((error)=>{
+        console.log(error)
+        setUser(user)
+      })
+
+      
       // console.log(user)
     })
 
@@ -59,7 +71,7 @@ const Register = () => {
             {/* PHOTO URL */}
             <label className="label">Photo Url</label>
             <input
-              type="input"
+              type="url"
               name="photoUrl"
               className="input"
               placeholder="Photo URL"
