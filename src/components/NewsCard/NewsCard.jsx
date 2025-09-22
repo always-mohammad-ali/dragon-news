@@ -2,11 +2,12 @@ import React from "react";
 import { CiBookmark } from "react-icons/ci";
 import { GoShareAndroid } from "react-icons/go";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { Link } from "react-router";
 
 
 const NewsCard = ({ newsCard }) => {
   const {
- 
+    id,
     total_view,
     author,
     title,
@@ -48,10 +49,10 @@ const NewsCard = ({ newsCard }) => {
           {details.length > 200 ? (
             <>
               {details.slice(0, 200)}.....
-              <span className="text-blue-400 font-semibold cursor-pointer hover:underline">
+              <Link to={`/category-individual-news/${id}`} className="text-blue-400 font-semibold cursor-pointer hover:underline">
                 {" "}
                 Read more
-              </span>
+              </Link>
             </>
           ) : (
             details
