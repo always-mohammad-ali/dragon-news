@@ -23,7 +23,7 @@ const Navbar = () => {
                 }
             </div>
             <div className='flex gap-5'>
-                <NavLink to="" className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>Home</NavLink>
+                <NavLink to="/" className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>Home</NavLink>
                 <NavLink to='/about' className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>About</NavLink>
                 <NavLink to='/career' className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>Career</NavLink>
             </div>

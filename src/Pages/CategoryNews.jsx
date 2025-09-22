@@ -11,7 +11,7 @@ const CategoryNews = () => {
     const {id} = useParams();
 
     const data = useLoaderData();
-    console.log(id,data)
+    // console.log(id,data)
     
     useEffect(()=>{
         if(id == "0"){

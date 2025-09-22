@@ -8,7 +8,7 @@ import IndividualCategoryNewsCard from '../components/individualCategoryNewsCard
 const IndividualCategoryNews = () => {
 
     const newsData = useLoaderData();
-    console.log(newsData)
+    // console.log(newsData)
 
     const { id } = useParams();
 
@@ -20,7 +20,7 @@ const IndividualCategoryNews = () => {
         
     },[newsData, id])
 
-    console.log(individualNewsData);
+    // console.log(individualNewsData);
 
 
     return (
