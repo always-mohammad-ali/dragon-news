@@ -15,7 +15,9 @@ const NewsCard = ({ newsCard }) => {
     details,
     
   } = newsCard;
+
   const formattedDate = new Date(author.published_date).toLocaleDateString();
+  
   return (
     <div>
       <div className="w-21/22 mx-auto">

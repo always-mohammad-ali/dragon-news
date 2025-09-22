@@ -5,6 +5,7 @@ import LatestNews from '../components/LatestNews/LatestNews';
 import Navbar from '../components/Navbar/Navbar';
 import LeftAside from '../components/HomeLayout/LeftAside';
 import RightAside from '../components/HomeLayout/RightAside';
+import AuthLayout from './AuthLayout';
 
 
 const HomeLayout = () => {
@@ -29,7 +30,9 @@ const HomeLayout = () => {
                 </aside>
 
                 <section className="main-section col-span-6 mr-5">
-                    <Outlet></Outlet>
+                    <Outlet>
+                        
+                    </Outlet>
                 </section>
 
                 <aside className='col-span-3 sticky top-0 h-1/2'>
@@ -37,6 +40,7 @@ const HomeLayout = () => {
                 </aside>
 
             </main>
+            
         </div>
     );
 };
