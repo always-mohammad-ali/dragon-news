@@ -1,12 +1,39 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router";
+import { AuthContext } from "../provider/authProvider";
 
 const Register = () => {
+
+  const {createUser, setUser} = use(AuthContext)
+
+  const handleRegister = (e) =>{
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photoUrl = e.target.photoUrl.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    console.log({name, photoUrl, email, password})
+
+    createUser(email, password)
+    .then((result) =>{
+      const user = result.user;
+      setUser(user);
+      // console.log(user)
+    })
+
+    .catch((error) =>{
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      alert(errorMessage)
+    })
+    
+  }
   return (
     <div className="flex justify-center">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
         <div className="card-body">
-          <form className="fieldset">
+          <form onSubmit={handleRegister} className="fieldset">
 
             {/* NAME */}
             <label className="label">Name</label>
@@ -15,6 +42,7 @@ const Register = () => {
               name="name"
               className="input"
               placeholder="Enter Your Name"
+              required
             />
 
             {/* PHOTO URL */}
@@ -24,15 +52,19 @@ const Register = () => {
               name="photoUrl"
               className="input"
               placeholder="Photo URL"
+              required
             />
 
             {/* EMAIL */}
+
             <label className="label">Email</label>
+
             <input
               type="email"
               name="email"
               className="input"
               placeholder="Email"
+              required
             />
 
             {/* PASSWORD */}
@@ -42,11 +74,12 @@ const Register = () => {
               name="password"
               className="input"
               placeholder="Password"
+              required
             />
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn btn-neutral mt-4">Login</button>
+            <button className="btn btn-neutral mt-4">Register</button>
             <p className="text-secondary my-3">
               Already Have an Account?{" "}
               <Link
