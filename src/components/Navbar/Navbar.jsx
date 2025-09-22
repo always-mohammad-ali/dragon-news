@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import userProfile from './../../assets/user.png'
+import { AuthContext } from '../../provider/authProvider';
 
 
 const Navbar = () => {
+    const {user} = use(AuthContext);
     return (
         <div className='flex justify-between items-center mb-10'>
-            <div></div>
+            <div>
+                {
+                    user && <p>{user.email}</p>
+                }
+            </div>
             <div className='flex gap-5'>
                 <NavLink to='/' className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>Home</NavLink>
                 <NavLink to='/about' className={({isActive}) => isActive ? 'bg-accent px-4 py-1 text-white' : ''}>About</NavLink>
