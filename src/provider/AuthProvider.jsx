@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
-    console.log(user)
+    console.log(user);
 
     // CREATING A USER PROFILE
     const createUser = (email, password) =>{
@@ -26,8 +26,7 @@ const AuthProvider = ({ children }) => {
     
     const logInUser = (email, password) =>{
         setLoading(true)
-        return signInWithEmailAndPassword(auth, email, password)
-        
+        return signInWithEmailAndPassword(auth, email, password)      
     }
 
     // LOG OUT A USER
@@ -59,13 +58,11 @@ const AuthProvider = ({ children }) => {
         logOutUser,
         loading, 
         setLoading,
-        updateUserProfile
-        
+        updateUserProfile      
     }
 
 
     return <AuthContext value={authData}> {children} </AuthContext>;
-    
 };
 
 export default AuthProvider;

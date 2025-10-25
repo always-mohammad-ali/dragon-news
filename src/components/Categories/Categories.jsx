@@ -17,6 +17,7 @@ const Categories = () => {
                          key={category.id} 
                          className={({isActive})=>isActive ? 'bg-accent px-3 py-2 text-white font-semibold' : 'hover:bg-gray-200 py-2 px-3' }
                          to={`/category/${category.id}`}>
+                            
 
                          {category.name}
                     </NavLink>

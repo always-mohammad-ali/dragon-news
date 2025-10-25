@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from 'react-router';
 import HomeLayout from '../layouts/HomeLayout';
 import Home from '../Pages/Home';
@@ -9,6 +8,7 @@ import Register from '../Pages/Register';
 import AuthLayout from '../layouts/AuthLayout';
 import IndividualCategoryNews from '../Pages/IndividualCategoryNews';
 import PrivateRoute from '../provider/PrivateRoute';
+import Loading from '../components/loading/Loading';
 
 
     const router = createBrowserRouter(
@@ -25,6 +25,7 @@ import PrivateRoute from '../provider/PrivateRoute';
                         path:"/category/:id",
                         element:<CategoryNews></CategoryNews>,
                         loader:() => fetch("/public/news.json"),
+                        hydrateFallbackElement: <Loading></Loading>
                         
                     }
                 ]
@@ -58,10 +59,12 @@ import PrivateRoute from '../provider/PrivateRoute';
             {
                 path:'*',
                 element:<h3>Errorrr!</h3>
-
-            
             }
         ]
     )
    
 export default router;
+
+// # LIFE SAVER SHORTCUT
+// # CTRL + ALT + DOWN ARROW FOR MULTIPLE LINE EDIT
+// # CTRL + RIGHT  ARROW FOR 1 WORD JUMP AND END FOR AT THE END
